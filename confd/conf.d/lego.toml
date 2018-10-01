@@ -1,0 +1,10 @@
+[template]
+src    = "lego.tmpl.sh"
+dest   = "/tmp/lego.sh"
+owner  = "root"
+group  = "root"
+mode   = "0755"
+prefix = "/lego"
+keys   = [
+  "/"
+]
