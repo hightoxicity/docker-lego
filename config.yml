@@ -15,5 +15,6 @@ lego:
         "cname": "site.mydomain.com",
         "email": "myemail@mydomain.com",
         "lego_server": "https://acme-staging-v02.api.letsencrypt.org/directory",
-        "dns_provider": "ovh"
+        "dns_provider": "ovh",
+        "sans": [ "san1.mydomain.com", "san2.mydomain.com" ]
       }
