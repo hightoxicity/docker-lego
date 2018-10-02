@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo docker run \
+  --interactive=true \
   --network=host \
   --pid=host \
   -e CONFIG_PATH='/config_prod.yml' \

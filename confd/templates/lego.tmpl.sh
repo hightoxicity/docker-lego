@@ -15,17 +15,13 @@ https_proxy="{{ getv "/proxy/https_proxy" }}"
 export http_proxy
 export https_proxy
 
-{{ if exists "/ovh/endpoint" }}
-export OVH_ENDPOINT="{{ getv "/ovh/endpoint" }}"
+{{ range gets "/providers_config/*" }}
+{{ $pName := base .Key }}
+{{ $pData := json .Value }}
+
+{{ range $pVar, $pVarVal := $pData }}
+export {{ toUpper $pName }}_{{ toUpper $pVar }}="{{ $pVarVal }}"
 {{ end }}
-{{ if exists "/ovh/application_key" }}
-export OVH_APPLICATION_KEY="{{ getv "/ovh/application_key" }}"
-{{ end }}
-{{ if exists "/ovh/application_secret" }}
-export OVH_APPLICATION_SECRET="{{ getv "/ovh/application_secret" }}"
-{{ end }}
-{{ if exists "/ovh/consumer_key" }}
-export OVH_CONSUMER_KEY="{{ getv "/ovh/consumer_key" }}"
 {{ end }}
 
 {{ range gets "/certs/*" }}
